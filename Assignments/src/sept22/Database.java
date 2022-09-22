@@ -92,6 +92,9 @@ public class Database {
 				System.out.println("Employee Salary: " + esal);
 			}
 		}
+		else { 
+			System.out.println("Invalid operation. Please try again using A, U, D, or S to make a valid selection.");
+			}
 
 		// Close connection
 		con.close();
