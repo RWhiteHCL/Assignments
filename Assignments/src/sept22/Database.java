@@ -18,7 +18,10 @@ public class Database {
 		System.out.println("Would you like to add, update, delete, or search within the Employee table? ");
 		System.out.println("A, U, D, S");
 		String choice = sc.next().toUpperCase();
-
+		
+		boolean isEditing = true;
+		
+		while(isEditing == true) {
 		if (choice.equals("A")) {
 			// Add to DB using user input
 			System.out.println("Employee Number: ");
@@ -95,10 +98,20 @@ public class Database {
 		else { 
 			System.out.println("Invalid operation. Please try again using A, U, D, or S to make a valid selection.");
 			}
+		
+		System.out.println("Do you want to continue making changes to the Employee database? Y/N");
+		String toContinue = sc.next().toLowerCase();
+		
+		if (toContinue.equals("y")) {
+			isEditing = true;
+		} else {
+			isEditing = false;
+			// Close connection
+			con.close();
+		}
+		
 
-		// Close connection
-		con.close();
-
+		}
 	}
 
 }
